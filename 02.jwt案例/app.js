@@ -19,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 const secretKey = 'itheima No1 ^_^'
 
 // TODO_04：注册将 JWT 字符串解析还原成 JSON 对象的中间件
+app.use(expressJWT({ secret: secretKey }).unless( { path: [/^\/api\//]}))
 
 // 登录接口
 app.post('/api/login', function (req, res) {

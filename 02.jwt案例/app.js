@@ -59,6 +59,18 @@ app.get('/admin/getinfo', function (req, res) {
 })
 
 // TODO_06：使用全局错误处理中间件，捕获解析 JWT 失败后产生的错误
+app.use((err, req, res, next) => {
+  if (err.name === 'UnauthorizedError') {
+    res.send({
+      status: 401,
+      message: '无效的 token'
+    })
+  }
+  res.send({
+    status: 500,
+    message: '未知的错误'
+  })
+})
 
 // 调用 app.listen 方法，指定端口号并启动web服务器
 app.listen(8888, function () {

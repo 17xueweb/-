@@ -24,6 +24,9 @@ app.post('/api/login', (req, res) => {
   }
 
   // TODO_02：请将登录成功后的用户信息，保存到 Session 中
+  // 注意：只有成功匹配了 express-session 这个中间件之后，才能通过 req 点出来 session 这个属性
+  req.session.user = req.body // 用户的信息
+  req.session.islogin = true // 用户的登录状态
 
   res.send({ status: 0, msg: '登录成功' })
 })

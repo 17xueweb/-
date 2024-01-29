@@ -5,7 +5,7 @@ const app = express()
 
 // TODO_01：安装并导入 JWT 相关的两个包，分别是 jsonwebtoken 和 express-jwt
 const jwt = require('jsonwebtoken') // 将用户信息生成token字符串
-const expressJWT = require('express-jwt') // 将token字符串 还原成用户信息
+const expressJWT = require('express-jwt') // 将t 还原成用户信息
 
 // 允许跨域资源共享
 const cors = require('cors')
@@ -16,6 +16,7 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // TODO_02：定义 secret 密钥，建议将密钥命名为 secretKey
+const secretKey = 'itheima No1 ^_^'
 
 // TODO_04：注册将 JWT 字符串解析还原成 JSON 对象的中间件
 
